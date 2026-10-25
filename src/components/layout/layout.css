@@ -1,0 +1,170 @@
+/* === Layout === */
+.header-wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 450;
+  pointer-events: none;
+}
+
+.header-pull {
+  position: fixed;
+  top: 4px;
+  left: 4px;
+  width: 40px;
+  height: 40px;
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  cursor: pointer;
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  color: var(--color-text-light);
+  transition: background 0.15s, opacity 0.3s;
+  z-index: 451;
+  opacity: 0.25;
+  font-family: var(--font-ui);
+}
+
+.header-pull:hover,
+.header-pull-open {
+  background: var(--color-bg);
+  opacity: 1;
+}
+
+/* Vertical dropdown menu */
+.header-menu {
+  position: fixed;
+  top: 48px;
+  left: 6px;
+  width: min(250px, calc(100vw - 12px));
+  max-height: calc(100dvh - 54px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  box-shadow: 0 4px 16px var(--shadow-overlay);
+  z-index: 451;
+  display: flex;
+  flex-direction: column;
+  padding: 4px 0;
+  pointer-events: auto;
+  font-family: var(--font-ui);
+  box-sizing: border-box;
+}
+
+.header-menu-label {
+  padding: 3px 12px 5px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--color-text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.header-menu-item,
+.tips-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+  min-height: 34px;
+  padding: 5px 12px;
+  background: none;
+  border: none;
+  color: var(--color-text-light);
+  font-size: 0.7rem;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.1s;
+  box-sizing: border-box;
+  overflow-wrap: anywhere;
+}
+
+.header-menu-item:hover,
+.tips-btn:hover { background: var(--color-bg); color: var(--color-text); }
+
+.header-menu-item:focus-visible,
+.tips-btn:focus-visible,
+.header-pull:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: -2px;
+}
+
+.header-menu-check {
+  cursor: pointer;
+  user-select: none;
+}
+
+.header-checkmark {
+  flex: 0 0 16px;
+  width: 16px;
+  color: var(--color-primary);
+  font-weight: 700;
+  text-align: center;
+}
+
+.header-menu-divider {
+  height: 1px;
+  background: var(--color-border);
+  margin: 2px 0;
+}
+
+.header-menu-tab.active {
+  color: var(--color-text);
+  font-weight: 600;
+  border-left: 3px solid var(--color-primary);
+  padding-left: 9px;
+}
+
+main {
+  max-width: 820px;
+  margin: 0 auto;
+  width: 100%;
+  padding: clamp(72px, 12vh, 132px) 16px 70px;
+  font-family: var(--font-ui);
+}
+
+/* === Top toggles === */
+.top-toggles {
+  position: fixed;
+  top: 12px;
+  right: 12px;
+  z-index: 200;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  opacity: 0.25;
+  transition: opacity 0.3s;
+  font-family: var(--font-ui);
+}
+
+.top-toggles:hover { opacity: 1; }
+
+.top-toggle {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.top-toggle input[type="checkbox"] {
+  width: 10px;
+  height: 10px;
+  margin: 0;
+  cursor: pointer;
+  accent-color: var(--color-text-light);
+}
+
+.top-toggle-label {
+  font-size: 0.5rem;
+  font-weight: 500;
+  color: var(--color-text-light);
+}

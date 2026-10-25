@@ -1,0 +1,52 @@
+/* === Math Mode === */
+.math-input { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.math-input input {
+  flex: 1; min-width: 120px; padding: 12px 16px;
+  border: 2px solid var(--color-border); border-radius: 2px; font-size: 1.1rem;
+  background: var(--color-card); color: var(--color-text);
+}
+.math-input input:focus { outline: none; border-color: var(--color-primary); }
+.math-input button {
+  padding: 12px 24px; background: var(--color-primary); color: white;
+  border: none; border-radius: 2px; font-size: 1rem; font-weight: 600; cursor: pointer;
+}
+
+.math-category-btns { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+.math-category-btns button {
+  padding: 8px 16px; border: 2px solid var(--color-border); background: var(--color-card);
+  border-radius: 2px; cursor: pointer; font-size: 0.85rem; font-weight: 500;
+  color: var(--color-text);
+}
+.math-category-btns button.active {
+  border-color: var(--color-primary); background: var(--color-primary-light); color: var(--color-primary-dark);
+}
+
+.math-steps {
+  margin-top: 14px; padding: 16px 20px;
+  background: var(--color-warm-bg); border-radius: 2px;
+  border: 1px solid var(--color-border);
+}
+.math-steps h4 {
+  font-size: 0.9rem; color: var(--color-accent-dark); margin: 0 0 8px;
+}
+.math-steps ol { padding-left: 24px; margin: 0; }
+.math-steps li { padding: 4px 0; font-size: 0.95rem; line-height: 1.5; }
+
+.feedback {
+  margin-top: 14px; padding: 10px 14px; border-radius: 4px;
+  font-weight: 500; font-size: 0.85rem; display: none;
+}
+.feedback.show { display: block; }
+.feedback.correct-fb { background: var(--color-primary-light); color: var(--color-primary-dark); }
+.feedback.wrong-fb { background: var(--color-danger-light); color: var(--color-danger-dark); }
+.feedback.skip-fb { background: var(--color-info-light); color: var(--color-info); }
+.feedback .explanation { display: block; font-weight: 400; font-size: 0.8rem; margin-top: 2px; }
+
+/* KaTeX overrides */
+.katex {
+  font-size: 1.1em !important;
+}
+
+.katex-display {
+  margin: 0.5em 0 !important;
+}

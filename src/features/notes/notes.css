@@ -1,0 +1,17 @@
+/* === Note Box === */
+.note-box {
+  width: 100%;
+}
+
+.note-box input {
+  width: 100%;
+  padding: 6px 8px;
+  background: var(--color-card);
+  border: 2px solid var(--color-text);
+  border-radius: 2px;
+  font-size: 0.75rem;
+  font-family: inherit;
+  color: var(--color-text);
+}
+
+.note-box input::placeholder { color: var(--color-text-light); }

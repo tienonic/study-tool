@@ -1,0 +1,139 @@
+@import "@fontsource/inter/latin-400.css";
+@import "@fontsource/inter/latin-500.css";
+@import "@fontsource/inter/latin-600.css";
+@import "@fontsource/inter/cyrillic-400.css";
+@import "@fontsource/inter/cyrillic-500.css";
+@import "@fontsource/inter/cyrillic-600.css";
+@import "@fontsource/inter/cyrillic-700.css";
+@import "katex/dist/katex.min.css";
+@import "./features/ai/ai.css";
+
+/* Theme tokens */
+:root {
+  --color-bg: #eef4f0;
+  --color-card: #fbfdfb;
+  --color-primary: #4a7fb5;
+  --color-primary-light: #e4eef7;
+  --color-primary-dark: #2c5a8a;
+  --color-accent: #c48f3f;
+  --color-accent-light: #f5ebe0;
+  --color-accent-dark: #a06830;
+  --color-danger: #b54a3f;
+  --color-danger-light: #f5e0dc;
+  --color-danger-dark: #8b3a32;
+  --color-text: #2d2a26;
+  --color-text-light: #6b6560;
+  --color-border: #d3dfd8;
+  --color-info: #4a7a96;
+  --color-info-light: #e4eff5;
+  --color-success-dark: #2d6b3e;
+  --color-warm-bg: #e6f0ea;
+
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-ui: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  --shadow-soft: rgba(0, 0, 0, 0.1);
+  --shadow-overlay: rgba(0, 0, 0, 0.12);
+  --shadow-medium: rgba(0, 0, 0, 0.15);
+}
+
+/* === Reset === */
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; font-family: var(--font-body); color: var(--color-text); background: var(--color-bg); font-size: 1.125rem; line-height: 1.625; }
+button, input, textarea, select { font-family: inherit; }
+
+.startup-reminder {
+  position: fixed;
+  top: 14px;
+  left: 50%;
+  z-index: 1000;
+  max-width: min(520px, calc(100vw - 28px));
+  transform: translateX(-50%);
+  padding: 0.65rem 0.9rem;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  background: var(--color-card);
+  box-shadow: 0 8px 24px var(--shadow-medium);
+  color: var(--color-text);
+  font-size: 0.9rem;
+  line-height: 1.35;
+  cursor: pointer;
+}
+
+/* === Zen mode === */
+.zen .header-pull { opacity: 0; }
+.zen .header-pull:hover, .zen .header-pull-open { opacity: 0.5; }
+.zen .card-actions { display: none; }
+.zen .sidebar-right { display: none !important; }
+.zen .mode-btn { display: none; }
+.zen .mode-toggle { border-color: transparent; margin-bottom: 4px; }
+.zen .dk-btn { display: none; }
+.zen .timer { display: none; }
+.zen .flashcard-hint { display: none; }
+.zen .feedback { display: none !important; }
+.zen .options:has(.option-btn.wrong) .option-btn.correct { border-color: var(--color-border); background: var(--color-card); opacity: 0.85; }
+
+.zen .top-toggles { opacity: 0.15 !important; }
+.zen .top-toggles .top-toggle-label { display: none; }
+.zen .top-toggles:hover { opacity: 0.6 !important; }
+
+.zen main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100svh;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.zen main > div {
+  width: 100%;
+  min-width: 0;
+}
+
+.zen .card {
+  box-shadow: none;
+  border: none;
+}
+
+/* Zen mode: hide math extras */
+.zen .math-category-btns { display: none; }
+
+/* === Responsive === */
+@media (max-width: 1100px) {
+  .sidebar-right {
+    position: static;
+    width: min(640px, calc(100vw - 32px));
+    margin: 56px auto 12px;
+    transform: none !important;
+    cursor: default;
+  }
+
+  main {
+    max-width: min(760px, 100%);
+    padding: 28px 14px 48px;
+  }
+
+  .activity-widget {
+    display: grid;
+    grid-template-columns: minmax(84px, 0.7fr) minmax(160px, 1.2fr) minmax(150px, 1fr);
+    align-items: center;
+  }
+
+  .activity-chart-wrap { padding: 0 8px; }
+  .activity-widget-stats { border-top: 0; border-left: 1px solid var(--color-border); }
+}
+
+@media (max-width: 600px) {
+  .sidebar-right { display: none; }
+  .activity-widget { display: block; }
+  .activity-widget-stats { border-top: 1px solid var(--color-border); border-left: 0; }
+  main { padding: 52px 10px 26px; }
+  .card { padding: 16px; }
+  .option-btn { padding: 10px 14px; }
+  .flashcard-front { font-size: 1rem; }
+  .rating-btn { min-width: 60px; padding: 8px 4px; }
+}
+
+/* Utilities */
+.hidden { display: none !important; }

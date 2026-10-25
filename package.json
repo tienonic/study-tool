@@ -1,0 +1,29 @@
+{
+  "name": "study-tool",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Local-first spaced-repetition drills with FSRS scheduling and SQLite storage.",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "test": "vitest run",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "test:harness": "node harness/demo.mjs && node --test harness/learning-core.test.mjs",
+    "audio:generate": "node scripts/generate-deck-audio.mjs"
+  },
+  "dependencies": {
+    "@fontsource/inter": "^5.2.8",
+    "katex": "^0.16.21",
+    "solid-js": "^1.9.5",
+    "ts-fsrs": "^5.2.3",
+    "wa-sqlite": "^1.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.3",
+    "vite": "^6.3.1",
+    "vite-plugin-pwa": "^1.2.0",
+    "vite-plugin-solid": "^2.11.6",
+    "vitest": "^4.1.1"
+  }
+}
